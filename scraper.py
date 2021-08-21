@@ -1,10 +1,3 @@
-#!/bin/env python3
-# Modified by @AbirHasan2005
-# Telegram Group: http://t.me/linux_repo
-# Please give me credits if you use any codes from here.
-
-
-
 from telethon.sync import TelegramClient
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
@@ -16,7 +9,6 @@ import time
 re="\033[1;31m"
 gr="\033[1;32m"
 cy="\033[1;36m"
-yo="\033[1;33m"
 
 def banner():
     print(f"""
@@ -24,8 +16,8 @@ def banner():
 {re} ║ {cy}├┤ │  ├┤ {re}║ ╦  ╚═╗{cy}│  ├┬┘├─┤├─┘├┤ ├┬┘
 {re} ╩ {cy}└─┘┴─┘└─┘{re}╚═╝  ╚═╝{cy}└─┘┴└─┴ ┴┴  └─┘┴└─
 
-            Version: 1.3
-     Modified by @AbirHasan2005
+            version : 3.1
+youtube.com/channel/UCnknCgg_3pVXS27ThLpw3xQ
         """)
 
 cpass = configparser.RawConfigParser()
@@ -39,7 +31,7 @@ try:
 except KeyError:
     os.system('clear')
     banner()
-    print("\033[91m[!] run \033[92mpython3 setup.py \033[91mfirst !!\n")
+    print(re+"[!] run python3 setup.py first !!\n")
     sys.exit(1)
 
 client.connect()
@@ -47,7 +39,7 @@ if not client.is_user_authorized():
     client.send_code_request(phone)
     os.system('clear')
     banner()
-    client.sign_in(phone, input(gr+'[+] Enter the verification code: '+yo))
+    client.sign_in(phone, input(gr+'[+] Enter the code: '+re))
  
 os.system('clear')
 banner()
@@ -72,22 +64,22 @@ for chat in chats:
     except:
         continue
  
-print(gr+'[+] Choose a group to scrape members:'+re)
+print(gr+'[+] Choose a group to scrape members :'+re)
 i=0
 for g in groups:
-    print(gr+'['+cy+str(i)+']' + ' - ' + g.title)
+    print(gr+'['+cy+str(i)+gr+']'+cy+' - '+ g.title)
     i+=1
  
 print('')
-g_index = input(gr+"[+] Enter a Number: "+re)
+g_index = input(gr+"[+] Enter a Number : "+re)
 target_group=groups[int(g_index)]
  
-print(gr+'[+] Fetching Members ...')
+print(gr+'[+] Fetching Members...')
 time.sleep(1)
 all_participants = []
 all_participants = client.get_participants(target_group, aggressive=True)
  
-print(gr+'[+] Saving in file ...')
+print(gr+'[+] Saving In file...')
 time.sleep(1)
 with open("members.csv","w",encoding='UTF-8') as f:
     writer = csv.writer(f,delimiter=",",lineterminator="\n")
@@ -107,4 +99,4 @@ with open("members.csv","w",encoding='UTF-8') as f:
             last_name= ""
         name= (first_name + ' ' + last_name).strip()
         writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])      
-print(gr+'[+] Members scraped successfully!')
+print(gr+'[+] Members scraped successfully.')

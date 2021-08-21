@@ -1,44 +1,55 @@
-# TelegramScraper v1.4 ![GitHub repo size](https://img.shields.io/github/repo-size/AbirHasan2005/TelegramScraper?label=Repo%20Size)
-Using this tool you can easily add so many members from any group to your group. Less than 2 minutes. Super easy. Time saver. But this tool is only for educational purpose. You could be banned from Telegram. So be careful. Recommanded to use this tool only on Termux.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/th3unkn0n/TeleGram-Scraper/master/.image/20191203_205322.jpg" width="470" height="150">
+</p>
 
-## Telegram Group:
-<a href="https://t.me/linux_repo"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
-#### Join Telegram group for help, feedback, details and chats.
+<p align="center"><img src="https://img.shields.io/badge/Version-3.1-brightgreen"></p>
+<p align="center">
+  <a href="https://github.com/th3unkn0n">
+    <img src="https://img.shields.io/github/followers/th3unkn0n?label=Follow&style=social">
+  </a>
+  <a href="https://github.com/th3unkn0n/TeleGram-Group-Scraper">
+    <img src="https://img.shields.io/github/stars/th3unkn0n/TeleGram-Group-Scraper?style=social">
+  </a>
+</p>
+<p align="center">
+  Telegram Group Scrapper
+</p>
+<p align="center">
+</p>
 
-## How to Setup API:
-- Go to https://my.telegram.org and Login.
-- Click on API development tools and fill the required fields.
-- Put app name you want & select Other in Platform.
-- After clicking Create App, Copy "api_id" & "api_hash" from there. (This will be used in `setup.py`)
-<p><img src="https://i1.wp.com/python.gotrained.com/wp-content/uploads/2019/01/desc.png?resize=768%2C479&ssl=1"></p>
-
-## How To Install? (Only for Termux!):
-
-$ `pkg install git python -y`
-
-$ `git clone https://github.com/AbirHasan2005/TelegramScraper`
-
-$ `cd TelegramScraper`
-
-$ `chmod +x * && python3 setup.py`
-
-## To Genrate User Data:
-
-$ `python3 scraper.py`
-
-- (`members.csv` is default if you changed name use it)
-- Send Bulk SMS To Collected Data
-
-$ `python3 smsbot.py members.csv` [Optional]
-
-- Add users to your group
-
-$ `python3 adder.py `
-
-#### Or,
-
-$ `python3 add2group.py members.csv`
-
-- If you need more help <a href="https://t.me/linux_repo"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
 ---
 
+## • API Setup
+* Go to http://my.telegram.org  and log in.
+* Click on API development tools and fill the required fields.
+* put app name you want & select other in platform Example :
+* copy "api_id" & "api_hash" after clicking create app ( will be used in setup.py )
+
+## • How To Install and Use
+
+`$ pkg install -y git python`
+
+`$ git clone https://github.com/th3unkn0n/TeleGram-Scraper.git`
+
+`$ cd TeleGram-Scraper`
+
+* Install requierments
+
+`$ python3 setup.py -i`
+
+* setup configration file ( apiID, apiHASH )
+
+`$ python3 setup.py -c`
+
+* To Genrate User Data
+
+`$ python3 scraper.py`
+
+* ( members.csv is default if you changed name use it )
+* Send Bulk sms To Collected Data 
+
+`$ python3 smsbot.py members.csv`
+
+* Update Tool
+
+`$ python3 setup.py -u`

@@ -1,8 +1,4 @@
 #!/bin/env python3
-# Modified by @AbirHasan2005
-# Telegram Group: http://t.me/linux_repo
-# Please give me credits if you use any codes from here.
-
 from telethon.sync import TelegramClient
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
@@ -25,8 +21,7 @@ def banner():
 {re} ║ {cy}├┤ │  ├┤ {re}║ ╦  ╚═╗{cy}│  ├┬┘├─┤├─┘├┤ ├┬┘
 {re} ╩ {cy}└─┘┴─┘└─┘{re}╚═╝  ╚═╝{cy}└─┘┴└─┴ ┴┴  └─┘┴└─
 
-            Version: 1.3
-     Modified by @AbirHasan2005
+            version : 1.0
         """)
 
 cpass = configparser.RawConfigParser()
@@ -40,7 +35,7 @@ try:
 except KeyError:
     os.system('clear')
     banner()
-    print("\033[91m[!] Please run \033[92mpython3 setup.py\033[91m first !!!\n")
+    print(re+"[!] run python3 setup.py first !!\n")
     sys.exit(1)
 
 client.connect()
@@ -48,7 +43,7 @@ if not client.is_user_authorized():
     client.send_code_request(phone)
     os.system('clear')
     banner()
-    client.sign_in(phone, input(gr+'[+] Enter the sent code: '+re))
+    client.sign_in(phone, input(gr+'[+] Enter the code: '+re))
  
 os.system('clear')
 banner()
@@ -86,25 +81,25 @@ for chat in chats:
     except:
         continue
  
-print(gr+'[+] Choose a group to add members: '+re)
 i=0
 for group in groups:
-    print(str(i) + '- ' + group.title)
+    print(gr+'['+cy+str(i)+gr+']'+cy+' - '+group.title)
     i+=1
- 
-g_index = input(gr+"Enter a Number: "+re)
+
+print(gr+'[+] Choose a group to add members')
+g_index = input(gr+"[+] Enter a Number : "+re)
 target_group=groups[int(g_index)]
  
 target_group_entity = InputPeerChannel(target_group.id,target_group.access_hash)
  
-print(gr+"[1] Add member by user ID\n[2] Add member by username ")
-mode = int(input(gr+"Input: "+re)) 
+print(gr+"[1] add member by user ID\n[2] add member by username ")
+mode = int(input(gr+"Input : "+re)) 
 n = 0
  
 for user in users:
     n += 1
     if n % 50 == 0:
-	    time.sleep(900)
+	    time.sleep(1)
 	    try:
 	        print ("Adding {}".format(user['id']))
 	        if mode == 1:
@@ -116,13 +111,13 @@ for user in users:
 	        else:
 	            sys.exit(re+"[!] Invalid Mode Selected. Please Try Again.")
 	        client(InviteToChannelRequest(target_group_entity,[user_to_add]))
-	        print(gr+"[+] Waiting for 60-180 sec ...")
-	        time.sleep(random.randrange(60, 180))
+	        print(gr+"[+] Waiting for 5-10 Seconds...")
+	        time.sleep(random.randrange(5, 10))
 	    except PeerFloodError:
-	        print(re+"[!] Getting Flood Errors from Telegram. \n[!] Script is stopping for now. \n[!] Please try again after some time.")
+	        print(re+"[!] Getting Flood Error from telegram. \n[!] Script is stopping now. \n[!] Please try again after some time.")
 	    except UserPrivacyRestrictedError:
-	        print(re+"[!] The user's privacy settings do not allow you to do this. Skipping ...")
+	        print(re+"[!] The user's privacy settings do not allow you to do this. Skipping.")
 	    except:
 	        traceback.print_exc()
-	        print(re+"[!] Unexpected Error ...")
+	        print(re+"[!] Unexpected Error")
 	        continue
